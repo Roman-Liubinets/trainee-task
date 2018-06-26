@@ -21,7 +21,8 @@ const appRoute: Routes = [
     ThirdPageComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
