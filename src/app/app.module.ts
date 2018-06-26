@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { SecondPageComponent } from './second-page/second-page.component';
 import { ThirdPageComponent } from './third-page/third-page.component';
-import { Routes } from '@angular/router';  
+import { Routes, RouterModule } from '@angular/router';  
 
 const appRoute: Routes = [
   { path: 'firstPage', component: FirstPageComponent },
