@@ -5,13 +5,8 @@ import { AppComponent } from './app.component';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { SecondPageComponent } from './second-page/second-page.component';
 import { ThirdPageComponent } from './third-page/third-page.component';
-import { Routes, RouterModule } from '@angular/router';  
+import { AppRoutingModule } from './app-routing.module';
 
-const appRoutes: Routes = [
-  { path: '', component: FirstPageComponent },
-  { path: 'secondPage', component: SecondPageComponent },
-  { path: 'thirdPage', component: ThirdPageComponent }
-];
 
 @NgModule({
   declarations: [
@@ -22,7 +17,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
