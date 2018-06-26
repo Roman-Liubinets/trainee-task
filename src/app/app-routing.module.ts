@@ -6,7 +6,7 @@ import { ThirdPageComponent } from './third-page/third-page.component';
 
 
 const appRoutes: Routes = [
-    { path: '', component: FirstPageComponent },
+    { path: 'firstPage', component: FirstPageComponent },
     { path: 'secondPage', component: SecondPageComponent },
     { path: 'thirdPage', component: ThirdPageComponent }
   ];
