@@ -8,7 +8,7 @@ import { ThirdPageComponent } from './third-page/third-page.component';
 import { Routes, RouterModule } from '@angular/router';  
 
 const appRoutes: Routes = [
-  { path: 'firstPage', component: FirstPageComponent },
+  { path: '', component: FirstPageComponent },
   { path: 'secondPage', component: SecondPageComponent },
   { path: 'thirdPage', component: ThirdPageComponent }
 ];
