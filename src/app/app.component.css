@@ -1,19 +1,20 @@
-/* .container-1 {
-    display: flex;
-    align-items: stretch;
-    flex-direction: row;
+.form-group:nth-child(1) {
+    width: 500px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.container-1 {
-    justify-content: center;
+.form-group:nth-child(2) {
+    width: 500px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.container-1 div {
-    padding: 10px;
-    border: 1px solid silver;
+.route-content {
+    width: 500px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
 }
-
-.box {
-    width: 20%;
-} */
-
