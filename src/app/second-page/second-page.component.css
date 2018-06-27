@@ -1,0 +1,60 @@
+
+.container-1 {
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+    margin-top: 120px;
+}
+
+.container-1 {
+    justify-content: center;
+}
+
+.container-1 .buttons-container {
+    /* padding: 10px; */
+    border: 1px solid silver;
+}
+
+.buttons-container {
+    width: 250px;
+    height: 150px;
+    background-color: black;
+}
+
+.buttons {
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.buttons button:nth-child(1) {
+    margin-right: 7.5px;
+}
+
+.buttons button:nth-child(2) {
+    margin-left: 7.5px;
+}
+
+.buttons button {
+    background-color: black;
+    border: 1px solid Chartreuse;
+    color: Chartreuse;
+}
+.circl {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 80px;
+    margin: auto;
+    margin-top: 80px;
+}
+h1 {
+    display: inline;
+
+}
+
+.buttons {
+    margin-top: 50px;
+}

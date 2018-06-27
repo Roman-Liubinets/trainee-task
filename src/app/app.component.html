@@ -1,0 +1,10 @@
+<div class="container-0">
+  <div class="form-group">
+    <input [(ngModel)]="search" class="form-control">
+    <button (click)="setPage()" class="btn btn-success" >перейти</button>
+    <div *ngFor="let route of rrr | searchPipe: search">
+      {{route.path}}
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>
