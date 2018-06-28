@@ -3,15 +3,17 @@ import { Router } from '@angular/router';
 import { Location } from "@angular/common";
 import { appRoutes } from "./app-routing.module";
 import { NgForm } from "@angular/forms";
+import { AppService } from "./app.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [AppService]
 })
 export class AppComponent {
   rrr = appRoutes;
-  constructor(private router: Router, private location: Location) {}
+  constructor(private router: Router, private location: Location, private appService: AppService ) {}
     search;
     notFound;
 

@@ -7,6 +7,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 
 
+
 export const appRoutes: Routes = [
     { path: '', component: SecondPageComponent },
     { path: 'firstPage', component: FirstPageComponent },
