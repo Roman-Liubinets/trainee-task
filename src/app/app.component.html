@@ -5,7 +5,7 @@
       <input [(ngModel)]="search" required class="form-control" name="searchField" #searchField="ngModel">
       <div *ngIf="searchField.invalid && searchField.touched" class="text-muted">
         <p [hidden]="!searchField.errors.required">
-          aaa
+          Введіть сторінку
         </p>
       </div>
     </div>
@@ -13,8 +13,6 @@
       <button class="btn btn-success" [disabled]="!form.valid" type="submit">перейти</button>
     </div>
   </form>
-
-
   <div class="route-content">
     <div *ngFor="let route of rrr | searchPipe: search">
       {{route.path}}
@@ -23,13 +21,3 @@
 
   <router-outlet></router-outlet>
 </div>
-
-<!-- ss -->
-<!-- <div>
-  <input formcontrolname="fileType" id="fileType" maxlength="30" placeholder="Document Type Name" type="text" #fileType="ngModel"
-    name="fileType" [ngClass]="{'red-border':fileTypes.invalid && (fileType.dirty || fileType.touched || fileTypes.submitted)}"
-     class="" [(ngModel)]="stateName" required>
-  <span *ngIf="fileType.invalid && (fileTypes.dirty || fileTypes.touched || fileTypes.submitted)" class="error-text">
-    Document type name is required
-  </span>
-</div> -->

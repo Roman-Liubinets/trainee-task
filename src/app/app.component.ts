@@ -12,7 +12,7 @@ import { NgForm } from "@angular/forms";
 export class AppComponent {
   rrr = appRoutes;
   constructor(private router: Router, private location: Location) {}
-    search="";
+    search;
     notFound;
 
 
@@ -26,40 +26,7 @@ export class AppComponent {
       this.router.navigateByUrl('/thirdPage');
     }  else {
       this.router.navigateByUrl('/404');
-      this.notFound=false;
     }
   }
-
-  // ss
-  // validate(form) {
-  //   if (form.valid) {
-  //     this.loading = true;
-  //     if (this.isEdit) {
-  //       this.managersService
-  //         .updateCompanyContact(this.companyContactData)
-  //         .subscribe(
-  //           res => {
-  //             this.editModal.close();
-  //             this.loading = false;
-  //           },
-  //           err => {
-  //             console.log(err);
-  //             this.loading = false;
-  //           },
-  //       );
-  //     } else {
-  //       this.managersService
-  //         .createCompanyContact(this.companyContactData)
-  //         .subscribe(
-  //           res => {
-  //             this.editModal.close();
-  //             this.loading = false;
-  //           },
-  //           err => {
-  //             console.log(err);
-  //             this.loading = false;
-  //           },
-  //       );
-  //     }
 
 }
