@@ -1,10 +1,19 @@
 <div class="container">
-  <div class="form-group">
-    <input [(ngModel)]="search" class="form-control">
-  </div>
-  <div class="form-group">
-    <button (click)="setPage()" class="btn btn-success">перейти</button>
-  </div>
+  <form (ngSubmit)="setPage(form)" #form="ngForm">
+    <div class="form-group" [ngClass]="{'has-error': searchField.invalid && searchField.touched }">
+      <label>Перейти на:</label>
+      <input [(ngModel)]="search" required class="form-control" name="searchField" #searchField="ngModel">
+      <div *ngIf="searchField.invalid && searchField.touched" class="text-muted">
+        <p [hidden]="!searchField.errors.required">
+          aaa
+        </p>
+      </div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-success" [disabled]="!form.valid" type="submit">перейти</button>
+    </div>
+  </form>
+
 
   <div class="route-content">
     <div *ngFor="let route of rrr | searchPipe: search">
@@ -14,3 +23,13 @@
 
   <router-outlet></router-outlet>
 </div>
+
+<!-- ss -->
+<!-- <div>
+  <input formcontrolname="fileType" id="fileType" maxlength="30" placeholder="Document Type Name" type="text" #fileType="ngModel"
+    name="fileType" [ngClass]="{'red-border':fileTypes.invalid && (fileType.dirty || fileType.touched || fileTypes.submitted)}"
+     class="" [(ngModel)]="stateName" required>
+  <span *ngIf="fileType.invalid && (fileTypes.dirty || fileTypes.touched || fileTypes.submitted)" class="error-text">
+    Document type name is required
+  </span>
+</div> -->

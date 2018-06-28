@@ -12,7 +12,7 @@ export const appRoutes: Routes = [
     { path: 'firstPage', component: FirstPageComponent },
     { path: 'secondPage', component: SecondPageComponent },
     { path: 'thirdPage', component: ThirdPageComponent },
-    { path: '404', component: NotFoundComponent }
+    { path: '**', component: NotFoundComponent }
   ];
 
 
