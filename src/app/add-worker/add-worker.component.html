@@ -1,7 +1,7 @@
 <div class="form-group">
     <label>Add worker:</label>
-    <input type="text" class="form-control">
+    <input type="text" class="form-control" [(ngModel)]="workerName">
   </div>
     <div class="form-group">
-        <button class="btn btn-primary">ADD!</button>
+        <button class="btn btn-primary" (click)="addWorker()">ADD!</button>
     </div>
