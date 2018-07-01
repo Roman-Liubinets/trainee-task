@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from "@angular/common";
 import { appRoutes } from "./app-routing.module";
 import { NgForm } from "@angular/forms";
 import { AppService } from "./app.service";
+
 
 @Component({
   selector: 'app-root',
@@ -11,9 +12,14 @@ import { AppService } from "./app.service";
   styleUrls: ['./app.component.css'],
   providers: [AppService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   rrr = appRoutes;
-  constructor(private router: Router, private location: Location, private appService: AppService ) {}
+  constructor(private router: Router, private location: Location, private appService: AppService) {}
+  
+
+  ngOnInit() {
+  }
+
     search;
     notFound;
 

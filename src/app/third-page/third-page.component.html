@@ -1,4 +1,8 @@
 <div class="container-1">
+    <app-add-worker></app-add-worker>
+    <div class="list-group">
+        <app-workers *ngFor="let worker of workers" [workerItem]="worker"></app-workers>
+    </div>
     <div class="buttons-container">
       <div class="buttons">
           <a routerLink='/secondPage'><button class="btn">Назад</button></a>

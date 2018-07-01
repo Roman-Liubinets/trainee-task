@@ -9,6 +9,9 @@ import { FormsModule } from '@angular/forms';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SearchPipe } from './app.pipe';
 import { HttpModule } from '@angular/http';
+import { AddWorkerComponent } from './add-worker/add-worker.component';
+import { WorkersComponent } from './workers/workers.component';
+import { CrudService } from './crud.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import { HttpModule } from '@angular/http';
     SecondPageComponent,
     ThirdPageComponent,
     NotFoundComponent,
-    SearchPipe
+    SearchPipe,
+    AddWorkerComponent,
+    WorkersComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +30,7 @@ import { HttpModule } from '@angular/http';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [CrudService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
