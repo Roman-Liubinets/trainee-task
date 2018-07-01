@@ -1,7 +1,7 @@
-<div class="list-group">
+<div [ngClass]="getClass()" >
     <h4 [ngStyle]="{marginBottom: '20px'}">{{worker.fullName}}</h4>
     <div>
-      <button class="btn btn-sm btn-primary">Edit</button>
-      <button class="btn btn-sm btn-danger">Delete!</button>
+      <button class="btn btn-sm btn-primary" (click)="editWorker()">Edit</button>
+      <button class="btn btn-sm btn-danger" (click)="deleteWorker()">Delete!</button>
     </div>
 </div>

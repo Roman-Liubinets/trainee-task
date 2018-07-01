@@ -1,16 +1,23 @@
-<div class="container-1">
+<div class="worker-container">
     <app-add-worker></app-add-worker>
+</div>
+<div class="work-container-2">
     <div class="list-group">
-        <app-workers *ngFor="let worker of workers" [workerItem]="worker"></app-workers>
+        <app-workers *ngFor="let worker of workers; let i=index" [workerItem]="worker"></app-workers>
     </div>
+</div>
+<div class="container-1">
     <div class="buttons-container">
-      <div class="buttons">
-          <a routerLink='/secondPage'><button class="btn">Назад</button></a>
-          <a routerLink='/firstPage'><button class="btn">Вперед</button></a>
-      </div>
+        <div class="buttons">
+            <a routerLink='/secondPage'>
+                <button class="btn">Назад</button>
+            </a>
+            <a routerLink='/firstPage'>
+                <button class="btn">Вперед</button>
+            </a>
+        </div>
     </div>
-  </div>
-
-  <div class="circl">
+</div>
+<div class="circl">
     <h1>3</h1>
-  </div>
+</div>

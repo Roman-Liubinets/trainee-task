@@ -58,3 +58,18 @@ h1 {
 .buttons {
     margin-top: 50px;
 }
+
+.worker-container {
+    justify-content: center;
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.work-container-2 {
+    justify-content: center;
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+}

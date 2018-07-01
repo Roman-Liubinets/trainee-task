@@ -13,6 +13,7 @@ export class AddWorkerComponent {
     this.workerName = "";
   }
 
+
   constructor(private crudService: CrudService) { }
 
 
