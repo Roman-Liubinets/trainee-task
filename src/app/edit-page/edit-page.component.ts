@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { CrudService } from '../crud.service';
 
 @Component({
   selector: 'app-edit-page',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-page.component.css']
 })
 export class EditPageComponent implements OnInit {
+  @Input('workerItem') worker;
+  name="";
+  workers = [];
+  constructor(private crudService: CrudService) { }
 
-  constructor() { }
+  
 
   ngOnInit() {
+    this.workers = this.crudService.workers;
+  }
+
+  updateWorker(worker, newValue) {
+    worker.fullName = newValue;
+      worker.editing = false;
   }
 
 }

@@ -1,3 +1,11 @@
-<p>
-  edit-page works!
-</p>
+<div [ngClass]="getClass()" class="workers-container">
+    <h4 [ngStyle]="{marginBottom: '20px'}">{{worker.fullName}}</h4>
+    <div class="workers">
+        <input type="text" [(ngModel)]="name" name="name" class="form-control edit" #updatedWorker [value]="worker.fullName"
+        (blur)="updateWorker(worker, updatedWorker.value)"
+        (keyup.escape)="worker.editing = false"
+        (keyup.enter)="updateWorker(worker, updatedWorker.value)">
+      <button class="btn btn-sm btn-primary" (click)="worker.editing = true">Edit</button>
+      <button class="btn btn-sm btn-danger" (click)="deleteWorker()">Delete!</button>
+    </div>
+</div>

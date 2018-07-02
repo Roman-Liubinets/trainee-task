@@ -6,6 +6,7 @@
         (keyup.escape)="worker.editing = false"
         (keyup.enter)="updateWorker(worker, updatedWorker.value)">
       <button class="btn btn-sm btn-primary" (click)="worker.editing = true">Edit</button>
+      <!-- routerLink="/editPage" -->
       <button class="btn btn-sm btn-danger" (click)="deleteWorker()">Delete!</button>
     </div>
 </div>
