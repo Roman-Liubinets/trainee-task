@@ -1,24 +1,24 @@
-import { DEFAULT_PACKAGE_URL_PROVIDER } from "@angular/platform-browser-dynamic/src/compiler_factory";
-
 export class CrudService {
     workers = [{
-        fullName: "Yaruna Liubinets"
+        fullName: "Yaruna Liubinets",
+        _id: 1
     },{
-        fullName: "Roman Liubinets"
+        fullName: "Roman Liubinets",
+        _id: 2
     }];
 // CRUD Operations
 // add to new workers
     addWorker(fullName: string) {
         this.workers.push({
-            fullName
+            fullName,
+            _id: 1
         })
     }
+    
 //delete workers
     deleteWorker(index){ 
         this.workers.splice(index, 1); 
+        return
     }
-// Edit workers
-    // editWorker(index) {
-    //     this.workers.fullName = editName;
-    // }    
 }
+

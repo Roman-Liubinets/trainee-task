@@ -12,6 +12,7 @@ import { HttpModule } from '@angular/http';
 import { AddWorkerComponent } from './add-worker/add-worker.component';
 import { WorkersComponent } from './workers/workers.component';
 import { CrudService } from './crud.service';
+import { EditPageComponent } from './edit-page/edit-page.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CrudService } from './crud.service';
     NotFoundComponent,
     SearchPipe,
     AddWorkerComponent,
-    WorkersComponent
+    WorkersComponent,
+    EditPageComponent
   ],
   imports: [
     BrowserModule,

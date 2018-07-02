@@ -21,13 +21,16 @@ export class WorkersComponent implements OnInit {
 
   }
 workerName="";
-workerEditedName="Edited Name";
 
   deleteWorker() {
     this.crudService.deleteWorker(this.workerName);
   }
-//   editWorker() {
-//     this.crudService.editWorker(this.workerEditedName);
-// } 
-  
+
+updateWorker(worker, newValue) {
+  worker.fullName = newValue;
+    worker.editing = false;
+}
+
+
+
 }
