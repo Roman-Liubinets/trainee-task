@@ -9,10 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SearchPipe } from './app.pipe';
 import { HttpModule } from '@angular/http';
-import { AddWorkerComponent } from './add-worker/add-worker.component';
-import { WorkersComponent } from './workers/workers.component';
+import { HttpClientModule } from '@angular/common/http';
 import { CrudService } from './crud.service';
-import { EditPageComponent } from './edit-page/edit-page.component';
 
 @NgModule({
   declarations: [
@@ -21,15 +19,13 @@ import { EditPageComponent } from './edit-page/edit-page.component';
     SecondPageComponent,
     ThirdPageComponent,
     NotFoundComponent,
-    SearchPipe,
-    AddWorkerComponent,
-    WorkersComponent,
-    EditPageComponent
+    SearchPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     HttpModule
   ],
   providers: [CrudService],

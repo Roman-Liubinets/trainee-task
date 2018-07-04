@@ -68,8 +68,35 @@ h1 {
 }
 
 .work-container-2 {
-    justify-content: center;
-    display: flex;
-    align-items: stretch;
-    flex-direction: row;
+    width: 450px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.worker-add {
+    width: 450px;
+    padding: 20px;
+}
+
+.btn-primary {
+    width: 75px;
+}
+
+.worker-add button {
+    margin-top: 15px;
+}
+
+.list-container {
+    width: 450px;
+}
+
+.list-group {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid gray;
+}
+
+.list-group button {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

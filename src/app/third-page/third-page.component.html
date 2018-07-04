@@ -1,23 +1,36 @@
-<div class="worker-container">
-    <app-add-worker></app-add-worker>
-</div>
 <div class="work-container-2">
-    <div class="list-group">
-        <app-workers *ngFor="let worker of workers; let i=index" [workerItem]="worker"></app-workers>
+  <div class="worker-add">
+    <div class="form-group">
+      <label>Enter Name:</label>
+      <input type="text" class="form-control" [(ngModel)]="fullName">
+      <button class="btn btn-success" (click)="addWorker()">ADD!</button>
     </div>
+  </div>
+  <div class="list-container">
+    <div class="list-group" *ngFor="let worker of workers">
+      <p>{{worker.full_name}}</p>
+      <button class="btn btn-primary" (click)="worker.editable =! worker.editable">Edit</button>
+      <div class="worker-edit" *ngIf="worker.editable">
+        <input type="text" class="form-control list-group-item" [(ngModel)]="worker.full_name">
+        <button class="btn btn-success" (click)="updateWorker(worker, worker.full_name)">COMMIT!</button>
+        <button class="btn btn-danger" (click)="deleteWorker(worker)">Delete</button>
+      </div>
+    </div>
+  </div>
+
 </div>
 <div class="container-1">
-    <div class="buttons-container">
-        <div class="buttons">
-            <a routerLink='/secondPage'>
-                <button class="btn">Назад</button>
-            </a>
-            <a routerLink='/firstPage'>
-                <button class="btn">Вперед</button>
-            </a>
-        </div>
+  <div class="buttons-container">
+    <div class="buttons">
+      <a routerLink='/secondPage'>
+        <button class="btn">Назад</button>
+      </a>
+      <a routerLink='/firstPage'>
+        <button class="btn">Вперед</button>
+      </a>
     </div>
+  </div>
 </div>
 <div class="circl">
-    <h1>3</h1>
+  <h1>3</h1>
 </div>
