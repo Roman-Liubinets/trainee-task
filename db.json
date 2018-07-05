@@ -1,3 +1,9 @@
 {
-  "workers": []
+  "workers": [
+    {
+      "full_name": "sdas",
+      "editable": false,
+      "id": 1
+    }
+  ]
 }

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../crud.service';
 import { Response } from '@angular/http';
+
 interface Workers {
-  id: number;
-  full_name: string;
+  _id: number;
+  name: string;
   editable: boolean;
 }
 
@@ -14,18 +15,27 @@ interface Workers {
 })
 export class ThirdPageComponent implements OnInit {
   workers: Workers[] = [];
-  fullName:string="";
-  editName:string="";
+  // editWorker: Workers[] = [];
+  
+  fullName: string = '';
   
   constructor(private crudService: CrudService) { }
 
 
   ngOnInit() {
+    // this.getWorkers();
    this.crudService
    .getWorkers()
    .subscribe((workers: Workers[]) => {
      this.workers = workers;
+     console.log(workers);
    });
+  }
+
+  getWorkers() {
+    this.crudService.getWorkers().subscribe(response => {
+      console.log(response);
+    });
   }
 
   addWorker() {
@@ -34,11 +44,17 @@ export class ThirdPageComponent implements OnInit {
     .subscribe((worker: Workers) => {
       this.workers.push(worker);
     });
-    this.fullName="";
+    this.fullName = '';
   }
 
-  updateWorker(worker: Workers, fullName) {
-    this.crudService.updateWorker(worker, fullName)
+  updateWorker(edit: Workers) {
+     const editWorker = {
+     id: edit._id,
+      name: edit.name
+    }
+    console.log(editWorker.id);
+    this.crudService
+    .updateWorker(editWorker)
     .subscribe((data) => {
       console.log(data);
     });
@@ -47,7 +63,7 @@ export class ThirdPageComponent implements OnInit {
   deleteWorker(worker: Workers) {
     this.crudService.deleteWorker(worker)
     .subscribe((data) => {
-      this.workers = this.workers.filter(w => w.id !== worker.id);
+      this.workers = this.workers.filter(w => w._id !== worker._id);
     });
   }
 

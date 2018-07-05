@@ -8,13 +8,14 @@
   </div>
   <div class="list-container">
     <div class="list-group" *ngFor="let worker of workers">
-      <p>{{worker.full_name}}</p>
+      <p>{{worker.name}}</p>
       <button class="btn btn-primary" (click)="worker.editable =! worker.editable">Edit</button>
       <div class="worker-edit" *ngIf="worker.editable">
-        <input type="text" class="form-control list-group-item" [(ngModel)]="worker.full_name">
-        <button class="btn btn-success" (click)="updateWorker(worker, worker.full_name)">COMMIT!</button>
+        <input type="text" class="form-control list-group-item" [(ngModel)]="worker.name">
+        <button class="btn btn-success" (click)="updateWorker(worker)">COMMIT!</button>
         <button class="btn btn-danger" (click)="deleteWorker(worker)">Delete</button>
       </div>
+      <!-- <app-edit-page ></app-edit-page> -->
     </div>
   </div>
 

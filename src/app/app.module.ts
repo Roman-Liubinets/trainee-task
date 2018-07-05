@@ -11,6 +11,7 @@ import { SearchPipe } from './app.pipe';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { CrudService } from './crud.service';
+import { EditPageComponent } from './edit-page/edit-page.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CrudService } from './crud.service';
     SecondPageComponent,
     ThirdPageComponent,
     NotFoundComponent,
-    SearchPipe
+    SearchPipe,
+    EditPageComponent
   ],
   imports: [
     BrowserModule,
