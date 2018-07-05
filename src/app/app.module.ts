@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CrudService } from './crud.service';
 import { EditPageComponent } from './edit-page/edit-page.component';
 import { AuthModule } from './auth/auth.module';
+import { UsersService } from './auth/shared/services/user.service';
 
 @NgModule({
   declarations: [
@@ -30,9 +31,9 @@ import { AuthModule } from './auth/auth.module';
     FormsModule,
     HttpClientModule,
     HttpModule,
-    AuthModule 
+    AuthModule
   ],
-  providers: [CrudService],
+  providers: [CrudService, UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
