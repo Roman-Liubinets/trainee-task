@@ -1,5 +1,5 @@
 <div class="container">
-  <form (ngSubmit)="setPage(form)" #form="ngForm">
+  <!-- <form (ngSubmit)="setPage(form)" #form="ngForm">
     <div class="form-group" [ngClass]="{'has-error': searchField.invalid && searchField.touched }">
       <label>Перейти на:</label>
       <input [(ngModel)]="search" required class="form-control" name="searchField" #searchField="ngModel">
@@ -17,7 +17,6 @@
     <div *ngFor="let route of rrr | searchPipe: search">
       {{route.path}}
     </div>
-  </div>
-
+  </div> -->
   <router-outlet></router-outlet>
 </div>

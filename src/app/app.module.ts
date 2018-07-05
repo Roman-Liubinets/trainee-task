@@ -12,6 +12,7 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { CrudService } from './crud.service';
 import { EditPageComponent } from './edit-page/edit-page.component';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { EditPageComponent } from './edit-page/edit-page.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    AuthModule 
   ],
   providers: [CrudService],
   bootstrap: [AppComponent]

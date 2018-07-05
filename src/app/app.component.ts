@@ -24,17 +24,17 @@ export class AppComponent implements OnInit {
     notFound;
 
 
-  setPage(form: NgForm) {
-    console.log("Submited!")
-    if(this.search == "firstPage") {
-      this.router.navigateByUrl('/firstPage');
-    } else if (this.search == "secondPage") {
-      this.router.navigateByUrl('/secondPage');
-    } else if (this.search == "thirdPage") {
-      this.router.navigateByUrl('/thirdPage');
-    }  else {
-      this.router.navigateByUrl('/404');
-    }
-  }
+  // setPage(form: NgForm) {
+  //   console.log("Submited!")
+  //   if(this.search == "firstPage") {
+  //     this.router.navigateByUrl('/firstPage');
+  //   } else if (this.search == "secondPage") {
+  //     this.router.navigateByUrl('/secondPage');
+  //   } else if (this.search == "thirdPage") {
+  //     this.router.navigateByUrl('/thirdPage');
+  //   }  else {
+  //     this.router.navigateByUrl('/404');
+  //   }
+  // }
 
 }

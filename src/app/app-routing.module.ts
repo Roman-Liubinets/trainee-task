@@ -9,11 +9,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 
 export const appRoutes: Routes = [
-    { path: '', component: SecondPageComponent },
-    { path: 'firstPage', component: FirstPageComponent },
-    { path: 'secondPage', component: SecondPageComponent },
-    { path: 'thirdPage', component: ThirdPageComponent },
-    { path: '**', component: NotFoundComponent }
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
+    // { path: 'firstPage', component: FirstPageComponent },
+    // { path: 'secondPage', component: SecondPageComponent },
+    // { path: 'thirdPage', component: ThirdPageComponent },
+    // { path: '**', component: NotFoundComponent }
   ];
 
 
@@ -24,6 +24,4 @@ export const appRoutes: Routes = [
     exports: [RouterModule]
 })
 
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule {}
