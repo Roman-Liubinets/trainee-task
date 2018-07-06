@@ -58,6 +58,7 @@ export class LoginComponent implements OnInit {
           window.localStorage.setItem('user', JSON.stringify(user));
           this.authService.login();
           console.log("LOGGED!");
+          this.router.navigate(['/system', 'third']);
           // this.router.navigate(['']);
         } else {
           this.showMessage({text: "Password is incorrect", type: "danger"});

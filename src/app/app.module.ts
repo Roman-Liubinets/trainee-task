@@ -14,7 +14,6 @@ import { EditPageComponent } from './edit-page/edit-page.component';
 import { AuthModule } from './auth/auth.module';
 import { UsersService } from './auth/shared/services/user.service';
 import { AuthService } from './auth/shared/services/auth.service';
-import { SystemModule } from './auth/system/system.module';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
