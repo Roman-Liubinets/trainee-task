@@ -4,7 +4,6 @@ import { AppComponent } from './app.component';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { SecondPageComponent } from './second-page/second-page.component';
 import { ThirdPageComponent } from './third-page/third-page.component';
-import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SearchPipe } from './app.pipe';
@@ -15,14 +14,16 @@ import { EditPageComponent } from './edit-page/edit-page.component';
 import { AuthModule } from './auth/auth.module';
 import { UsersService } from './auth/shared/services/user.service';
 import { AuthService } from './auth/shared/services/auth.service';
+import { SystemModule } from './auth/system/system.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FirstPageComponent,
-    SecondPageComponent,
-    ThirdPageComponent,
-    NotFoundComponent,
+    // FirstPageComponent,
+    // SecondPageComponent,
+    // ThirdPageComponent,
+    // NotFoundComponent,
     SearchPipe,
     EditPageComponent
   ],

@@ -23,10 +23,10 @@
 <div class="container-1">
   <div class="buttons-container">
     <div class="buttons">
-      <a routerLink='/secondPage'>
+      <a [routerLink]="['/system', 'second']">
         <button class="btn">Назад</button>
       </a>
-      <a routerLink='/firstPage'>
+      <a [routerLink]="['/system', 'first']">
         <button class="btn">Вперед</button>
       </a>
     </div>

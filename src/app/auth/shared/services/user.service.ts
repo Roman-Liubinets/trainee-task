@@ -11,7 +11,8 @@ export class UsersService {
     constructor(private http: HttpClient) {}
 
     getUserByEmail(email: string) {
-        return this.http.get(`http://localhost:8081/api/users?email=${email}`);
+        return this.http.get(`http://localhost:8081/api/users?email=${email}`)
+        .pipe(map((user: User[]) => user[0] ? user[0] : undefined));
     }
 
     createNewUser(user: User) {

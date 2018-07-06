@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
 
   private showMessage(message: Message) {
     this.message = message;
-    
+
     window.setTimeout(() => {
       this.message.text = '';
     }, 5000);
@@ -57,9 +57,9 @@ export class LoginComponent implements OnInit {
           this.message.text = '';
           window.localStorage.setItem('user', JSON.stringify(user));
           this.authService.login();
+          console.log("LOGGED!");
           // this.router.navigate(['']);
         } else {
-          
           this.showMessage({text: "Password is incorrect", type: "danger"});
         }
       } else {
