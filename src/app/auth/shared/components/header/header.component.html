@@ -1,0 +1,12 @@
+<header class="header">
+  <div class="header-block header-block-nav">
+    <ul class="nav-profile">
+      <li class="profile dropdown" appDropdown>
+        <a role="button">
+          Hello, {{user.name}}
+        </a>
+        <a class="dropdown-item" (click)="onLogout()">Exit</a>
+      </li>
+    </ul>
+  </div>
+</header>
