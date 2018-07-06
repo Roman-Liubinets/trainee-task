@@ -14,6 +14,7 @@ import { CrudService } from './crud.service';
 import { EditPageComponent } from './edit-page/edit-page.component';
 import { AuthModule } from './auth/auth.module';
 import { UsersService } from './auth/shared/services/user.service';
+import { AuthService } from './auth/shared/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { UsersService } from './auth/shared/services/user.service';
     HttpModule,
     AuthModule
   ],
-  providers: [CrudService, UsersService],
+  providers: [CrudService, UsersService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
