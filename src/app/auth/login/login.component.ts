@@ -17,10 +17,18 @@ export class LoginComponent implements OnInit {
   constructor(private usersService: UsersService) {}
 
   ngOnInit() {
+    this.message = new Message('danger', '');
     this.form = new FormGroup({
       'email': new FormControl(null, [Validators.required, Validators.email]),
       'password': new FormControl(null, [Validators.required, Validators.minLength(1)])
     })
+  }
+
+  private showMessage(text:string, type: string = 'danger') {
+    this.message = new Message(type, text);
+    window.setTimeout(() => {
+      this.message.text = '';
+    }, 5000);
   }
 
   onSubmit() {
@@ -32,10 +40,10 @@ export class LoginComponent implements OnInit {
 
         } else {
           //Logic
-          alert("Password is incorrect");
+          this.showMessage("Password is incorrect");
         }
       } else {
-        alert("This user does not exist!");
+        this.showMessage("This user does not exist!");
       }
     })
   }
