@@ -22,13 +22,13 @@ export class UsersService {
     // }
 
     getUserByEmail(email: string) {
-        return this.http.get(`http://localhost:8081/api/users?email=${email}`)
+        return this.http.get(`http://localhost:8081/api/user-email/${email}`);
         // .pipe(map((response: Response) => {
         //     response.json();
         // }))
-        .pipe(map((user: User[]) => 
-            user[0] ? user[0] : undefined
-        ));
+        // .pipe(map((user: User[]) => 
+        //     user[0] ? user[0] : undefined
+        // ));
 
     }
 
