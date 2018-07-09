@@ -15,19 +15,26 @@ export class UsersService {
         private permissionsService: NgxPermissionsService
     ) {}
 
+    // getUserByEmail(email: string) {
+    //     return this.http.get(`http://localhost:8081/api/users?email=${email}`)
+    //     .pipe(map((user: User[]) => user[2] ? user[2] : undefined));
+
+    // }
+
     getUserByEmail(email: string) {
         return this.http.get(`http://localhost:8081/api/users?email=${email}`)
-        .pipe(map((user: User[]) => user[0] ? user[0] : undefined));
+        // .pipe(map((response: Response) => {
+        //     response.json();
+        // }))
+        .pipe(map((user: User[]) => 
+            user[0] ? user[0] : undefined
+        ));
+
     }
+
 
     createNewUser(user: User) {
         return this.http.post('http://localhost:8081/api/user', user);
     }
-
-    // permissions() {
-    //     const perm = ["Admin", "User"];
-
-    //     this.permissionsService
-    // }
 
 }
