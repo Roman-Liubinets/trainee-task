@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { NgxPermissionsService } from 'ngx-permissions';
+
 import { UsersService } from '../shared/services/user.service';
 import { User } from '../shared/models/user.model';
 import { Message } from '../shared/models/message.models';
 import { AuthService } from '../shared/services/auth.service';
+
 
 
 @Component({
@@ -21,7 +24,8 @@ export class LoginComponent implements OnInit {
     private usersService: UsersService,
     private authService: AuthService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private permissionsService: NgxPermissionsService
     ) {}
 
   ngOnInit() {
@@ -37,7 +41,10 @@ export class LoginComponent implements OnInit {
     this.form = new FormGroup({
       'email': new FormControl(null, [Validators.required, Validators.email]),
       'password': new FormControl(null, [Validators.required, Validators.minLength(1)])
-    })
+    });
+
+    // const perm = ["ADMIN", "EDITOR"];
+    // this.permissionsService.loadPermissions(perm);
   }
 
   private showMessage(message: Message) {
@@ -50,12 +57,14 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     const formData = this.form.value;
+
     this.usersService.getUserByEmail(formData.email)
     .subscribe((user: User) => {
       if(user) {
         if(user.password === formData.password) {
           this.message.text = '';
-          window.localStorage.setItem('user', JSON.stringify(user));
+          window.localStorage.setItem('user', JSON.stringify(user));  
+          this.permissionsService.loadPermissions([user.permission]);
           this.authService.login();
           console.log("LOGGED!");
           this.router.navigate(['/system', 'third']);

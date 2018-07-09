@@ -15,6 +15,7 @@ import { AuthModule } from './auth/auth.module';
 import { UsersService } from './auth/shared/services/user.service';
 import { AuthService } from './auth/shared/services/auth.service';
 import { AppRoutingModule } from './app-routing.module';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     HttpClientModule,
     HttpModule,
-    AuthModule
+    AuthModule,
+    NgxPermissionsModule.forRoot()
   ],
   providers: [CrudService, UsersService, AuthService],
   bootstrap: [AppComponent]

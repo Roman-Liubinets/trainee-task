@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../crud.service';
 import { Response } from '@angular/http';
+import { NgxPermissionsService } from 'ngx-permissions';
 
 interface Workers {
   _id: number;
@@ -19,7 +20,10 @@ export class ThirdPageComponent implements OnInit {
   
   fullName: string = '';
   
-  constructor(private crudService: CrudService) { }
+  constructor(
+    private crudService: CrudService,
+    private permissionsService: NgxPermissionsService
+  ) { }
 
 
   ngOnInit() {
@@ -28,8 +32,10 @@ export class ThirdPageComponent implements OnInit {
    .getWorkers()
    .subscribe((workers: Workers[]) => {
      this.workers = workers;
-     console.log(workers);
    });
+
+  //  this.permissionCheck();
+
   }
 
   getWorkers() {
@@ -66,5 +72,11 @@ export class ThirdPageComponent implements OnInit {
       this.workers = this.workers.filter(w => w._id !== worker._id);
     });
   }
+
+  // permissionCheck() {
+  //   var perm = ["ADMIN", "RZA"];
+  //   this.permissionsService.loadPermissions(perm);
+  //   console.log(perm);
+  // }
 
 }
