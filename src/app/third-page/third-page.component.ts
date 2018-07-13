@@ -24,7 +24,7 @@ interface Workers {
 })
 export class ThirdPageComponent implements OnInit {
   workers: Workers[] = [];
-  editWorker: Workers[] = [];
+  // editWorker: Workers[] = [];
   
   fullName: string = '';
   itemSelected;
@@ -55,9 +55,8 @@ export class ThirdPageComponent implements OnInit {
   }
 
   public editModal() {
-    this.dialog.open(EditComponent, {data: {
-      editWorker: this.editWorker
-    }});
+    console.log(this.itemSelected);
+    this.dialog.open(EditComponent, {data: {some: this.itemSelected}});
   }
 
   getWorkers() {
@@ -66,26 +65,26 @@ export class ThirdPageComponent implements OnInit {
     });
   }
 
-  addWorker() {
-    this.crudService
-    .addWorker(this.fullName)
-    .subscribe((worker: Workers) => {
-      this.workers.push(worker);
-    });
-    this.fullName = '';
-  }
+  // addWorker() {
+  //   this.crudService
+  //   .addWorker(this.fullName)
+  //   .subscribe((worker: Workers) => {
+  //     this.workers.push(worker);
+  //   });
+  //   this.fullName = '';
+  // }
 
-  updateWorker(edit: Workers) {
-     const editWorker = {
-     id: edit._id,
-     name: edit.name
-    }
-    this.crudService
-    .updateWorker(editWorker)
-    .subscribe((data) => {
-      console.log(data);
-    });
-  }
+  // updateWorker(edit: Workers) {
+  //    const editWorker = {
+  //    id: edit._id,
+  //    name: edit.name
+  //   }
+  //   this.crudService
+  //   .updateWorker(editWorker)
+  //   .subscribe((data) => {
+  //     console.log(data);
+  //   });
+  // }
 
   // deleteWorker(worker: Workers) {
   //   this.crudService.deleteWorker(worker)
