@@ -102,3 +102,24 @@ h1 {
     margin-bottom: 10px;
     margin-right: 10px;
 }
+
+table {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.selected {
+    background-color: aqua;
+}
+
+.example-icon {
+    padding: 0 34px;
+  }
+
+  .example-icon:hover {
+    color: red;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }

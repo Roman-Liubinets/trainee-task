@@ -1,6 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
+
+
+
 import { FirstPageComponent } from './first-page/first-page.component';
 import { SecondPageComponent } from './second-page/second-page.component';
 import { ThirdPageComponent } from './third-page/third-page.component';
@@ -16,6 +21,9 @@ import { UsersService } from './auth/shared/services/user.service';
 import { AuthService } from './auth/shared/services/auth.service';
 import { AppRoutingModule } from './app-routing.module';
 import { NgxPermissionsModule } from 'ngx-permissions';
+import { AddComponent } from './dialog/add/add.component';
+import { EditComponent } from './dialog/edit/edit/edit.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +33,9 @@ import { NgxPermissionsModule } from 'ngx-permissions';
     // ThirdPageComponent,
     // NotFoundComponent,
     SearchPipe,
-    EditPageComponent
+    EditPageComponent,
+    AddComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +44,12 @@ import { NgxPermissionsModule } from 'ngx-permissions';
     HttpClientModule,
     HttpModule,
     AuthModule,
-    NgxPermissionsModule.forRoot()
+    NgxPermissionsModule.forRoot(),
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [CrudService, UsersService, AuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AddComponent, EditComponent]
 })
 export class AppModule { }
