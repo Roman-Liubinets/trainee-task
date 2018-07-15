@@ -23,6 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { AddComponent } from './dialog/add/add.component';
 import { EditComponent } from './dialog/edit/edit/edit.component';
+import { DeleteComponent } from './dialog/delete/delete/delete.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { EditComponent } from './dialog/edit/edit/edit.component';
     SearchPipe,
     EditPageComponent,
     AddComponent,
-    EditComponent
+    EditComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,6 @@ import { EditComponent } from './dialog/edit/edit/edit.component';
   ],
   providers: [CrudService, UsersService, AuthService],
   bootstrap: [AppComponent],
-  entryComponents: [AddComponent, EditComponent]
+  entryComponents: [AddComponent, EditComponent, DeleteComponent]
 })
 export class AppModule { }

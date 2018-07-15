@@ -1,0 +1,9 @@
+<div class="delete-component">
+    <p>Are you sure you want to delete this item?</p>
+    <div class="actions-btn">
+        <mat-dialog-actions>
+            <button mat-button [mat-dialog-close]="1" (click)="deleteWorker()" class="btn btn-danger">Delete!</button>
+            <button mat-button (click)="close()" class="btn">Cancel</button>
+        </mat-dialog-actions>
+    </div>
+</div>

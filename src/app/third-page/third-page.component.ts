@@ -1,15 +1,15 @@
+import { CrudService } from './../crud.service';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource, MatDialog} from '@angular/material';
 import {SelectionModel} from '@angular/cdk/collections';
 import { Response } from '@angular/http';
 import {MatToolbarModule} from '@angular/material/toolbar';
-
-import { CrudService } from '../crud.service';
 import { NgxPermissionsService } from 'ngx-permissions';
 import { UsersService } from '../auth/shared/services/user.service';
 import { AddComponent } from '../dialog/add/add.component';
 import { EditComponent } from '../dialog/edit/edit/edit.component';
-
+import { DeleteComponent } from '../dialog/delete/delete/delete.component';
 
 interface Workers {
   _id: number;
@@ -32,7 +32,8 @@ export class ThirdPageComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private crudService: CrudService,
-    private permissionsService: NgxPermissionsService
+    private permissionsService: NgxPermissionsService,
+    public httpClient: HttpClient
   ) { } 
 
   ngOnInit() {
@@ -42,6 +43,11 @@ export class ThirdPageComponent implements OnInit {
      this.workers = workers;
    });
 
+   this.loadData();
+  }
+
+  refresh() {
+    this.loadData();
   }
 
   toggleSelect(event) {
@@ -59,10 +65,19 @@ export class ThirdPageComponent implements OnInit {
     this.dialog.open(EditComponent, {data: {some: this.itemSelected}});
   }
 
+  public deleteModal() {
+    this.dialog.open(DeleteComponent, {data: {some: this.itemSelected}});
+  }
+
   getWorkers() {
     this.crudService.getWorkers().subscribe(response => {
       console.log(response);
     });
+  }
+
+  public loadData() {
+    this.exampleDatabase = new CrudService(this.httpClient);
+    this.dataSource = new UserDataSource(this.exampleDatabase);
   }
 
   // addWorker() {
@@ -93,15 +108,11 @@ export class ThirdPageComponent implements OnInit {
   //   });
   // }
 
-  deleteWorker() {
-    this.crudService.deleteWorker(this.itemSelected)
-    .subscribe((data) => {
-      this.dataSource = new UserDataSource(this.crudService);
-    });
-  }
+
 
   displayedColumns: string[] = ['id', 'email', 'password', 'name'];
-  dataSource = new UserDataSource(this.crudService);
+  dataSource = new   UserDataSource(this.crudService);
+  exampleDatabase: CrudService | null;
 
   selection = new SelectionModel<Workers>(true, []);
 

@@ -35,6 +35,7 @@ export class EditComponent implements OnInit {
     id: update._id,
     name: update.name
    }
+   console.log(update.name);
    this.crudService
    .updateWorker(editWorker)
    .subscribe((data) => {
