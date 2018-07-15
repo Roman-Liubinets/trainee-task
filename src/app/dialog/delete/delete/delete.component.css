@@ -1,0 +1,25 @@
+button {
+    margin-left: 15px;
+    width: 100px;
+}
+
+.delete-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 450px;
+}
+
+.delete-container > * {
+    width: 100%;
+}
+
+.mat-dialog-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.mat-dialog-content {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}

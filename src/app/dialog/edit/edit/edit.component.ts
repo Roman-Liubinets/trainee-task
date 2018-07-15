@@ -33,13 +33,15 @@ export class EditComponent implements OnInit {
   updateWorker(update) {
     const editWorker = {
     id: update._id,
+    email: update.email,
+    password: update.password,
     name: update.name
    }
-   console.log(update.name);
    this.crudService
    .updateWorker(editWorker)
    .subscribe((data) => {
      console.log(data);
+    //  this.close();
    });
  }
 

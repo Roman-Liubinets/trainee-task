@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material';
 
 
 
@@ -48,7 +50,10 @@ import { DeleteComponent } from './dialog/delete/delete/delete.component';
     AuthModule,
     NgxPermissionsModule.forRoot(),
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
+    
   ],
   providers: [CrudService, UsersService, AuthService],
   bootstrap: [AppComponent],

@@ -15,7 +15,13 @@ interface Workers {
   styleUrls: ['./add.component.css']
 })
 export class AddComponent implements OnInit {
-  fullName: string = '';
+  
+    email: String ='';
+    password: String = '';
+    fullName: String = '';
+    permission: String = 'USER';
+  
+  
   workers: Workers[] = [];
 
   constructor(private matDialogRef: MatDialogRef<AddComponent>,
@@ -32,12 +38,11 @@ public close() {
 
 addWorker() {
   this.crudService
-  .addWorker(this.fullName)
+  .addWorker(this.email, this.password, this.fullName, this.permission)
   .subscribe((worker: Workers) => {
     this.workers.push(worker);
     console.log(worker);
   });
-  this.fullName = '';
 }
 
 }

@@ -12,9 +12,12 @@ export class CrudService {
     return this.http.get('http://localhost:8081/api/users');
 }
 
-    addWorker(fullName: string) {
+    addWorker(email, password, name, permission) {
     const data = {
-        name: fullName,
+        email: email,
+        password: password,
+        name: name,
+        permission: permission,
         editable: false
     };
     return this.http.post('http://localhost:8081/api/user', data);

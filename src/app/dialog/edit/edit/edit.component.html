@@ -1,6 +1,33 @@
-<div class="form-group">
-    <label>Enter Name:</label>
-    <input type="text" class="form-control" [(ngModel)]="update.name">
-    <button class="btn btn-success" (click)="updateWorker(update)">ADD!</button>
-  </div>
-<div><button mat-raised-button (click)="close()" class="btn btn-danger">Close</button></div>
+
+<div class="edit-container">
+    <h3 mat-dialog-title="mat-dialog-title">User id:
+        {{update._id}}</h3>
+    <div class="form">
+        <mat-form-field color="accent">
+            <input
+                matInput="matInput"
+                type="text"
+                placeholder="email:"
+                [(ngModel)]="update.email"></mat-form-field>
+        </div>
+        <div class="form">
+            <mat-form-field color="accent">
+                <input
+                    matInput="matInput"
+                    type="text"
+                    placeholder="name:"
+                    [(ngModel)]="update.name"></mat-form-field>
+            </div>
+            <div class="form">
+                <mat-form-field color="accent">
+                    <input
+                        matInput="matInput"
+                        type="text"
+                        placeholder="password:"
+                        [(ngModel)]="update.password"></mat-form-field>
+                </div>
+                <div mat-dialog-actions>
+                    <button mat-button class="btn btn-success" (click)="updateWorker(update)">Save</button>
+                    <button mat-button (click)="close()" class="btn btn-danger">Close</button>
+                </div>
+            </div>

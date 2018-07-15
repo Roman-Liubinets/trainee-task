@@ -1,6 +1,37 @@
-<div class="form-group">
+<!-- <div class="form-group">
     <label>Enter Name:</label>
     <input type="text" class="form-control" [(ngModel)]="fullName">
     <button class="btn btn-success" (click)="addWorker()">ADD!</button>
   </div>
-<div><button mat-raised-button (click)="close()" class="btn btn-danger">Close</button></div>
+<div><button mat-raised-button (click)="close()" class="btn btn-danger">Close</button></div> -->
+<div class="add-container">
+    <h3 mat-dialog-title>Add new worker</h3>
+    <div class="form">
+        <mat-form-field>
+            <input
+                matInput="matInput"
+                type="text"
+                placeholder="email:"
+                [(ngModel)]="email"></mat-form-field>
+        </div>
+        <div class="form">
+            <mat-form-field>
+                <input
+                    matInput="matInput"
+                    type="text"
+                    placeholder="password:"
+                    [(ngModel)]="password"></mat-form-field>
+            </div>
+            <div class="form">
+                <mat-form-field>
+                    <input
+                        matInput="matInput"
+                        type="text"
+                        placeholder="name:"
+                        [(ngModel)]="fullName"></mat-form-field>
+                </div>
+                <div mat-dialog-actions>
+                    <button class="btn btn-primary" (click)="addWorker()">Add</button>
+                    <button mat-button (click)="close()" class="btn">Close</button>
+                </div>
+            </div>
