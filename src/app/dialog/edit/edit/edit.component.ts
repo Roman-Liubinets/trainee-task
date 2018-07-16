@@ -1,7 +1,19 @@
-import { Component, OnInit, Inject, Input } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { CrudService } from '../../../crud.service';
-import { Workers } from '../../../models/worker.models';
+import {
+  Component,
+  OnInit,
+  Inject,
+  Input
+} from '@angular/core';
+import {
+  MatDialogRef,
+  MAT_DIALOG_DATA
+} from '@angular/material';
+import {
+  CrudService
+} from '../../../crud.service';
+import {
+  Workers
+} from '../../../models/worker.models';
 
 @Component({
   selector: 'app-edit',
@@ -9,15 +21,16 @@ import { Workers } from '../../../models/worker.models';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
-  editWorker: Workers[] = [];
-  update=this.data.some;
+  // editWorker: Workers[] = [];
+  update = this.data.some;
+  password;
 
-//  @Input() public editWorker: Workers;
+  //  @Input() public editWorker: Workers;
 
   constructor(
-    private matDialogRef: MatDialogRef<EditComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: {some: any},
-     private crudService: CrudService) { }
+    private matDialogRef: MatDialogRef < EditComponent > ,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private crudService: CrudService) {}
 
   ngOnInit() {
     // this.editWorker = this.data.editWorker;
@@ -30,19 +43,26 @@ export class EditComponent implements OnInit {
     this.matDialogRef.close();
   }
 
-  updateWorker(update) {
+  updateWorker(email, name, password) {
+    //   const editWorker = {
+    //   id: this.update._id,
+    //   email: this.update.email,
+    //   password: this.update.password,
+    //   name: this.update.name
+    //  }
     const editWorker = {
-    id: update._id,
-    email: update.email,
-    password: update.password,
-    name: update.name
-   }
-   this.crudService
-   .updateWorker(editWorker)
-   .subscribe((data) => {
-     console.log(data);
-     this.close();
-   });
- }
+      id: this.update._id,
+      email: email.value,
+      password: password.value,
+      name: name.value
+    }
+    console.log(editWorker);
+    this.crudService
+      .updateWorker(editWorker)
+      .subscribe((data) => {
+        console.log(data);
+        this.close();
+      });
+  }
 
 }

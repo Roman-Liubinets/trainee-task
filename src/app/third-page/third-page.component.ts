@@ -1,15 +1,41 @@
-import { CrudService } from './../crud.service';
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import {MatTableDataSource, MatDialog} from '@angular/material';
-import {SelectionModel} from '@angular/cdk/collections';
-import { Response } from '@angular/http';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import { NgxPermissionsService } from 'ngx-permissions';
-import { UsersService } from '../auth/shared/services/user.service';
-import { AddComponent } from '../dialog/add/add.component';
-import { EditComponent } from '../dialog/edit/edit/edit.component';
-import { DeleteComponent } from '../dialog/delete/delete/delete.component';
+import {
+  CrudService
+} from './../crud.service';
+import {
+  HttpClient
+} from '@angular/common/http';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import {
+  MatTableDataSource,
+  MatDialog
+} from '@angular/material';
+import {
+  SelectionModel
+} from '@angular/cdk/collections';
+import {
+  Response
+} from '@angular/http';
+import {
+  MatToolbarModule
+} from '@angular/material/toolbar';
+import {
+  NgxPermissionsService
+} from 'ngx-permissions';
+import {
+  UsersService
+} from '../auth/shared/services/user.service';
+import {
+  AddComponent
+} from '../dialog/add/add.component';
+import {
+  EditComponent
+} from '../dialog/edit/edit/edit.component';
+import {
+  DeleteComponent
+} from '../dialog/delete/delete/delete.component';
 
 interface Workers {
   _id: number;
@@ -26,30 +52,30 @@ export class ThirdPageComponent implements OnInit {
   workers: Workers[] = [];
   // editWorker: Workers[] = [];
   user: any;
-  
+
   fullName: string = '';
   itemSelected;
   currentUser: boolean;
   arr: any[] = [];
 
-  
-  
+
+
   constructor(
     public dialog: MatDialog,
     private crudService: CrudService,
     private permissionsService: NgxPermissionsService,
     public httpClient: HttpClient
-  ) { } 
+  ) {}
 
   ngOnInit() {
-   this.crudService
-   .getWorkers()
-   .subscribe((workers: Workers[]) => {
-     this.workers = workers;
-   });
+    this.crudService
+      .getWorkers()
+      .subscribe((workers: Workers[]) => {
+        this.workers = workers;
+      });
 
-   this.loadData();
-   this.currentUser = JSON.parse(window.localStorage.getItem('user')).admin;
+    this.loadData();
+    this.currentUser = JSON.parse(window.localStorage.getItem('user')).admin;
 
   }
 
@@ -60,26 +86,44 @@ export class ThirdPageComponent implements OnInit {
     this.arr.push(event);
     console.log(this.arr);
   }
-// Modal windows Open
+  // Modal windows Open
   public addModal() {
-    this.dialog.open(AddComponent, {data: {}}).afterClosed().subscribe(result => {
+    this.dialog.open(AddComponent, {
+      data: {}
+    }).afterClosed().subscribe(result => {
       this.refresh();
     });
   }
 
   public editModal() {
-    console.log(this.itemSelected);
-    if(this.arr.length > 1) {
+    let arrEditing = [];
+    this.arr.forEach(currentRes => {
+      if (currentRes.selected === true) {
+        arrEditing.push(currentRes);
+      }
+    });
+    if (arrEditing.length > 1) {
       alert("Choose 1 element");
-      this.arr=[];
+      this.arr = [];
+      console.log(this.arr);
       this.refresh();
       return;
     }
-    this.dialog.open(EditComponent, {data: {some: this.itemSelected}});
+    this.dialog.open(EditComponent, {
+      data: {
+        some: this.itemSelected
+      }
+    }).afterClosed().subscribe(result => {
+      this.refresh();
+    });
   }
 
   public deleteModal() {
-    this.dialog.open(DeleteComponent, {data: {some: this.itemSelected}}).afterClosed().subscribe(result => {
+    this.dialog.open(DeleteComponent, {
+      data: {
+        some: this.itemSelected
+      }
+    }).afterClosed().subscribe(result => {
       this.refresh();
     });
   }
@@ -125,34 +169,33 @@ export class ThirdPageComponent implements OnInit {
 
   deleteSelectedModal() {
     let arrDeleted = [];
-    this.arr.forEach( currentRes => {
-      if(currentRes.selected === true) {
+    this.arr.forEach(currentRes => {
+      if (currentRes.selected === true) {
         arrDeleted.push(currentRes);
       }
-    })
-    arrDeleted.forEach( result=> {
+    });
+    arrDeleted.forEach(result => {
       this.crudService.deleteWorker(result)
-      .subscribe((data) => {
-        this.refresh();
-        console.log(this.arr);
-      })
+        .subscribe((data) => {
+          this.refresh();
+          console.log(this.arr);
+        })
     })
   }
-
   refresh() {
-    this.crudService.getWorkers().subscribe((res)=> {
+    this.crudService.getWorkers().subscribe((res) => {
       // this.user = res;
-      this.dataSource = new   UserDataSource(this.crudService);
+      this.dataSource = new UserDataSource(this.crudService);
     })
   }
 
 
 
   displayedColumns: string[] = ['id', 'email', 'password', 'name'];
-  dataSource = new   UserDataSource(this.crudService);
+  dataSource = new UserDataSource(this.crudService);
   exampleDatabase: CrudService | null;
 
-  selection = new SelectionModel<Workers>(true, []);
+  selection = new SelectionModel < Workers > (true, []);
 
   /** Whether the number of selected elements matches the total number of rows. */
   // isAllSelected() {
