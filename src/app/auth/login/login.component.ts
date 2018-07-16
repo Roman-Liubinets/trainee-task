@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { NgxPermissionsService } from 'ngx-permissions';
 
 import { UsersService } from '../shared/services/user.service';
 import { User } from '../shared/models/user.model';
@@ -24,8 +23,7 @@ export class LoginComponent implements OnInit {
     private usersService: UsersService,
     private authService: AuthService,
     private router: Router,
-    private route: ActivatedRoute,
-    private permissionsService: NgxPermissionsService
+    private route: ActivatedRoute
     ) {}
 
   ngOnInit() {
@@ -52,27 +50,6 @@ export class LoginComponent implements OnInit {
     }, 5000);
   }
 
-  // onSubmit() {
-  //   const formData = this.form.value;
-
-  //   this.usersService.getUserByEmail(formData.email)
-  //   .subscribe((user: User) => {
-  //     if(user.email === formData.email) {
-  //       if(user.password === formData.password) {
-  //         this.message.text = '';
-  //         window.localStorage.setItem('user', JSON.stringify(user));  
-  //         this.permissionsService.loadPermissions([user.permission]);
-  //         this.authService.login();
-  //         console.log("LOGGED!");
-  //         this.router.navigate(['/system', 'third']);
-  //       } else {
-  //         this.showMessage({text: "Password is incorrect", type: "danger"});
-  //       }
-  //     } else {
-  //       this.showMessage({text: "This user does not exist!", type: "danger"});
-  //     }
-  //   })
-  // }
 
   onSubmit() {
     const formData = this.form.value;
@@ -83,8 +60,7 @@ export class LoginComponent implements OnInit {
       if(user.email === formData.email) {
         if(user.password === formData.password) {
           this.message.text = '';
-          window.localStorage.setItem('user', JSON.stringify(user));  
-          this.permissionsService.loadPermissions([user.permission]);
+          window.localStorage.setItem('user', JSON.stringify(user));
           this.authService.login();
           console.log("LOGGED!");
           this.router.navigate(['/system', 'third']);

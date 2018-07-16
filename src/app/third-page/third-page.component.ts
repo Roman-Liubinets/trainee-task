@@ -29,6 +29,10 @@ export class ThirdPageComponent implements OnInit {
   
   fullName: string = '';
   itemSelected;
+  currentUser: boolean;
+  arr: any[] = [];
+
+  
   
   constructor(
     public dialog: MatDialog,
@@ -45,6 +49,7 @@ export class ThirdPageComponent implements OnInit {
    });
 
    this.loadData();
+   this.currentUser = JSON.parse(window.localStorage.getItem('user')).admin;
 
   }
 
@@ -52,6 +57,8 @@ export class ThirdPageComponent implements OnInit {
     event.selected = !event.selected;
     this.itemSelected = event;
     console.log(this.itemSelected);
+    this.arr.push(event);
+    console.log(this.arr);
   }
 // Modal windows Open
   public addModal() {
@@ -62,6 +69,12 @@ export class ThirdPageComponent implements OnInit {
 
   public editModal() {
     console.log(this.itemSelected);
+    if(this.arr.length > 1) {
+      alert("Choose 1 element");
+      this.arr=[];
+      this.refresh();
+      return;
+    }
     this.dialog.open(EditComponent, {data: {some: this.itemSelected}});
   }
 
@@ -109,6 +122,22 @@ export class ThirdPageComponent implements OnInit {
   //     this.workers = this.workers.filter(w => w._id !== worker._id);
   //   });
   // }
+
+  deleteSelectedModal() {
+    let arrDeleted = [];
+    this.arr.forEach( currentRes => {
+      if(currentRes.selected === true) {
+        arrDeleted.push(currentRes);
+      }
+    })
+    arrDeleted.forEach( result=> {
+      this.crudService.deleteWorker(result)
+      .subscribe((data) => {
+        this.refresh();
+        console.log(this.arr);
+      })
+    })
+  }
 
   refresh() {
     this.crudService.getWorkers().subscribe((res)=> {

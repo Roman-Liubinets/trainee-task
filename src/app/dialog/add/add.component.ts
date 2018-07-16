@@ -19,7 +19,8 @@ export class AddComponent implements OnInit {
     email: String ='';
     password: String = '';
     fullName: String = '';
-    permission: String = 'USER';
+    permission: String = '';
+    admin: Boolean = false;
   
   
   workers: Workers[] = [];
@@ -38,7 +39,7 @@ public close() {
 
 addWorker() {
   this.crudService
-  .addWorker(this.email, this.password, this.fullName, this.permission)
+  .addWorker(this.email, this.password, this.fullName, this.permission, this.admin)
   .subscribe((worker: Workers) => {
     this.workers.push(worker);
     console.log(worker);

@@ -41,7 +41,7 @@ export class EditComponent implements OnInit {
    .updateWorker(editWorker)
    .subscribe((data) => {
      console.log(data);
-    //  this.close();
+     this.close();
    });
  }
 

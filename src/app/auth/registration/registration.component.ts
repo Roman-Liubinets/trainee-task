@@ -21,13 +21,13 @@ export class RegistrationComponent implements OnInit {
       'email': new FormControl(null, [Validators.required, Validators.email]),
       'password': new FormControl(null, [Validators.required, Validators.minLength(1)]),
       'name': new FormControl(null, [Validators.required]),
-      'permission': new FormControl("ADMIN")
+      'admin': new FormControl('false')
     });
   }
 
   onSubmit() {
-    const {email, password, name, permission} = this.form.value;
-    const user = new User(email, password, name, permission);    
+    const {email, password, name, admin} = this.form.value;
+    const user = new User(email, password, name, admin);    
     this.usersService.createNewUser(user)
       .subscribe((user: User) => {
         this.router.navigate(['/login'], {
