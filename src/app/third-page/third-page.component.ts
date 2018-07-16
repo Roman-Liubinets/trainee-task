@@ -87,6 +87,7 @@ export class ThirdPageComponent implements OnInit {
     console.log(this.arr);
   }
   // Modal windows Open
+  // Add Modal
   public addModal() {
     this.dialog.open(AddComponent, {
       data: {}
@@ -94,7 +95,7 @@ export class ThirdPageComponent implements OnInit {
       this.refresh();
     });
   }
-
+  // Edit Modal
   public editModal() {
     let arrEditing = [];
     this.arr.forEach(currentRes => {
@@ -105,8 +106,12 @@ export class ThirdPageComponent implements OnInit {
     if (arrEditing.length > 1) {
       alert("Choose 1 element");
       this.arr = [];
-      console.log(this.arr);
+      arrEditing = [];
+      this.itemSelected = null;
       this.refresh();
+      return;
+    } else if (!this.itemSelected) {
+      alert("Select 1 element");
       return;
     }
     this.dialog.open(EditComponent, {
@@ -114,10 +119,14 @@ export class ThirdPageComponent implements OnInit {
         some: this.itemSelected
       }
     }).afterClosed().subscribe(result => {
+      this.arr = [];
+      arrEditing = [];
+      this.itemSelected = null;
       this.refresh();
     });
   }
 
+  // Delete Modal
   public deleteModal() {
     this.dialog.open(DeleteComponent, {
       data: {
@@ -127,6 +136,7 @@ export class ThirdPageComponent implements OnInit {
       this.refresh();
     });
   }
+
 
   getWorkers() {
     this.crudService.getWorkers().subscribe(response => {
