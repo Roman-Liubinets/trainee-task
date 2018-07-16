@@ -25,6 +25,7 @@ interface Workers {
 export class ThirdPageComponent implements OnInit {
   workers: Workers[] = [];
   // editWorker: Workers[] = [];
+  user: any;
   
   fullName: string = '';
   itemSelected;
@@ -44,10 +45,7 @@ export class ThirdPageComponent implements OnInit {
    });
 
    this.loadData();
-  }
 
-  refresh() {
-    this.loadData();
   }
 
   toggleSelect(event) {
@@ -57,7 +55,9 @@ export class ThirdPageComponent implements OnInit {
   }
 // Modal windows Open
   public addModal() {
-    this.dialog.open(AddComponent, {data: {}})
+    this.dialog.open(AddComponent, {data: {}}).afterClosed().subscribe(result => {
+      this.refresh();
+    });
   }
 
   public editModal() {
@@ -66,7 +66,9 @@ export class ThirdPageComponent implements OnInit {
   }
 
   public deleteModal() {
-    this.dialog.open(DeleteComponent, {data: {some: this.itemSelected}});
+    this.dialog.open(DeleteComponent, {data: {some: this.itemSelected}}).afterClosed().subscribe(result => {
+      this.refresh();
+    });
   }
 
   getWorkers() {
@@ -107,6 +109,13 @@ export class ThirdPageComponent implements OnInit {
   //     this.workers = this.workers.filter(w => w._id !== worker._id);
   //   });
   // }
+
+  refresh() {
+    this.crudService.getWorkers().subscribe((res)=> {
+      // this.user = res;
+      this.dataSource = new   UserDataSource(this.crudService);
+    })
+  }
 
 
 

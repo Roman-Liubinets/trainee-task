@@ -42,6 +42,7 @@ addWorker() {
   .subscribe((worker: Workers) => {
     this.workers.push(worker);
     console.log(worker);
+    this.close();
   });
 }
 
