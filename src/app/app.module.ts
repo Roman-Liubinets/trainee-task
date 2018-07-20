@@ -19,6 +19,7 @@ import { AuthService } from './shared/services/auth.service';
 import { AddComponent } from './system/dialog/add/add.component';
 import { EditComponent } from './system/dialog/edit/edit/edit.component';
 import { DeleteComponent } from './system/dialog/delete/delete/delete.component';
+import { AuthGuard } from './shared/services/auth.guard';
 
 
 @NgModule({
@@ -42,7 +43,7 @@ import { DeleteComponent } from './system/dialog/delete/delete/delete.component'
     MatInputModule
     
   ],
-  providers: [CrudService, UsersService, AuthService],
+  providers: [CrudService, UsersService, AuthService, AuthGuard],
   bootstrap: [AppComponent],
   entryComponents: [AddComponent, EditComponent, DeleteComponent]
 })
