@@ -1,34 +1,5 @@
-<!-- <div class="permission-check">
-  <button (click)="permissionCheck">Check!</button>
-  <div class="permission-items">
-    <p *ngxPermissionsOnly="['ADMIN']">Permission Admin</p>
-    <p *ngxPermissionsOnly="['USER']">Permission User</p>
-  </div>
-</div> -->
-<!-- <div class="work-container-2">
-  <div class="worker-add" *ngxPermissionsOnly="['ADMIN']">
-    <div class="form-group">
-      <label>Enter Name:</label>
-      <input type="text" class="form-control" [(ngModel)]="fullName">
-      <button class="btn btn-success" (click)="addWorker()">ADD!</button>
-    </div>
-  </div>
-  <div class="list-container">
-    <div class="list-group" *ngFor="let worker of workers">
-      <p>{{worker.name}}</p>
-      <div *ngxPermissionsOnly="['ADMIN']" class="Edit-container">
-        <button class="btn btn-primary" (click)="worker.editable =! worker.editable">Edit</button>
-        <div class="worker-edit" *ngIf="worker.editable">
-          <input type="text" class="form-control list-group-item" [(ngModel)]="worker.name">
-          <button class="btn btn-success" (click)="updateWorker(worker)">COMMIT!</button>
-          <button class="btn btn-danger" (click)="deleteWorker(worker)">Delete</button>
-        </div>
-      </div>
-      <app-edit-page ></app-edit-page>
-    </div>
-  </div> -->
-
-<div *ngIf='this.currentUser'>
+<div class="tableAndToolbar">
+  <div *ngIf='this.currentUser'>
     <mat-toolbar color="primary">
         <mat-toolbar-row>
             <span>Toolbar</span>
@@ -41,25 +12,7 @@
         </mat-toolbar-row>
       </mat-toolbar>
 </div>
-  
-
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-  <!-- Checkbox Column -->
-  <!-- <ng-container matColumnDef="select">
-      <th mat-header-cell *matHeaderCellDef>
-        <mat-checkbox (change)="$event ? masterToggle() : null"
-                      [checked]="selection.hasValue() && isAllSelected()"
-                      [indeterminate]="selection.hasValue() && !isAllSelected()">
-        </mat-checkbox>
-      </th>
-      <td mat-cell *matCellDef="let row">
-        <mat-checkbox (click)="$event.stopPropagation()"
-                      (change)="$event ? selection.toggle(row) : null"
-                      [checked]="selection.isSelected(row)">
-        </mat-checkbox>
-      </td>
-    </ng-container> -->
 
   <!-- Position Column -->
   <ng-container matColumnDef="id">
@@ -89,11 +42,12 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="toggleSelect(row)" [ngClass]="{'selected': row.selected}">
   </tr>
 </table>
+</div>
+
 
 
 <!-- </div> -->
 <div class="container-1">
-  <div class="buttons-container">
     <div class="buttons">
       <a [routerLink]="['/system', 'second']">
         <button class="btn">Назад</button>
@@ -102,7 +56,6 @@
         <button class="btn">Вперед</button>
       </a>
     </div>
-  </div>
 </div>
 <div class="circl">
   <h1>3</h1>

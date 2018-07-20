@@ -50,7 +50,6 @@ interface Workers {
 })
 export class ThirdPageComponent implements OnInit {
   workers: Workers[] = [];
-  // editWorker: Workers[] = [];
   user: any;
 
   fullName: string = '';
@@ -149,34 +148,6 @@ export class ThirdPageComponent implements OnInit {
     this.dataSource = new UserDataSource(this.exampleDatabase);
   }
 
-  // addWorker() {
-  //   this.crudService
-  //   .addWorker(this.fullName)
-  //   .subscribe((worker: Workers) => {
-  //     this.workers.push(worker);
-  //   });
-  //   this.fullName = '';
-  // }
-
-  // updateWorker(edit: Workers) {
-  //    const editWorker = {
-  //    id: edit._id,
-  //    name: edit.name
-  //   }
-  //   this.crudService
-  //   .updateWorker(editWorker)
-  //   .subscribe((data) => {
-  //     console.log(data);
-  //   });
-  // }
-
-  // deleteWorker(worker: Workers) {
-  //   this.crudService.deleteWorker(worker)
-  //   .subscribe((data) => {
-  //     this.workers = this.workers.filter(w => w._id !== worker._id);
-  //   });
-  // }
-
   deleteSelectedModal() {
     let arrDeleted = [];
     this.arr.forEach(currentRes => {
@@ -192,36 +163,18 @@ export class ThirdPageComponent implements OnInit {
         })
     })
   }
+  
   refresh() {
     this.crudService.getWorkers().subscribe((res) => {
-      // this.user = res;
       this.dataSource = new UserDataSource(this.crudService);
     })
   }
-
-
 
   displayedColumns: string[] = ['id', 'email', 'password', 'name'];
   dataSource = new UserDataSource(this.crudService);
   exampleDatabase: CrudService | null;
 
   selection = new SelectionModel < Workers > (true, []);
-
-  /** Whether the number of selected elements matches the total number of rows. */
-  // isAllSelected() {
-  //   const numSelected = this.selection.selected.length;
-  //   const numRows = this.dataSource.data.length;
-  //   return numSelected === numRows;
-  // }
-
-  // /** Selects all rows if they are not all selected; otherwise clear selection. */
-  // masterToggle() {
-  //   this.isAllSelected() ?
-  //       this.selection.clear() :
-  //       this.dataSource.data.forEach(row => this.selection.select(row));
-  // }
-
-
 }
 
 export class UserDataSource {

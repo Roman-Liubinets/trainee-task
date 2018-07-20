@@ -16,11 +16,8 @@ import { CrudService } from '../../../../shared/services/crud.service';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
-  // editWorker: Workers[] = [];
   update = this.data.some;
   password;
-
-  //  @Input() public editWorker: Workers;
 
   constructor(
     private matDialogRef: MatDialogRef < EditComponent > ,
@@ -28,8 +25,6 @@ export class EditComponent implements OnInit {
     private crudService: CrudService) {}
 
   ngOnInit() {
-    // this.editWorker = this.data.editWorker;
-    // console.log(this.editWorker);
     console.log(this.data);
 
   }
@@ -39,12 +34,6 @@ export class EditComponent implements OnInit {
   }
 
   updateWorker(email, name, password) {
-    //   const editWorker = {
-    //   id: this.update._id,
-    //   email: this.update.email,
-    //   password: this.update.password,
-    //   name: this.update.name
-    //  }
     const editWorker = {
       id: this.update._id,
       email: email.value,

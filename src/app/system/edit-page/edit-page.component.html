@@ -1,5 +1,0 @@
-<div class="worker-edit" *ngIf="worker.editable">
-  <input type="text" class="form-control list-group-item" [(ngModel)]="worker.full_name">
-  <button class="btn btn-success" (click)="updateWorker(worker, worker.full_name, worker.editable)">COMMIT!</button>
-  <button class="btn btn-danger" (click)="deleteWorker(worker)">Delete</button>
-</div>
