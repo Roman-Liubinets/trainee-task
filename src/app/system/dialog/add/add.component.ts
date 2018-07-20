@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { CrudService } from '../../crud.service';
+import { CrudService } from '../../../shared/services/crud.service';
 
 interface Workers {
   _id: number;

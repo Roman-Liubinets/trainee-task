@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { User } from '../../models/user.model';
 import { AuthService } from '../../services/auth.service';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -22,9 +23,23 @@ export class HeaderComponent implements OnInit {
     this.user = JSON.parse(window.localStorage.getItem('user'));
   }
 
+  search;
+
   onLogout() {
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+
+  setPage(form: NgForm) {
+    if(this.search == 1) {
+      this.router.navigate(['/system', 'first']);
+    } else if (this.search == 2) {
+      this.router.navigate(['/system', 'second']);
+    } else if (this.search == 3) {
+      this.router.navigate(['/system', 'third']);
+    }  else {
+      this.router.navigate(['/system', '**']);
+    }
   }
 
 }

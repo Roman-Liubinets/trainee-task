@@ -1,22 +1,3 @@
 <div>
-  <!-- <form (ngSubmit)="setPage(form)" #form="ngForm">
-    <div class="form-group" [ngClass]="{'has-error': searchField.invalid && searchField.touched }">
-      <label>Перейти на:</label>
-      <input [(ngModel)]="search" required class="form-control" name="searchField" #searchField="ngModel">
-      <div *ngIf="searchField.invalid && searchField.touched" class="text-muted">
-        <p [hidden]="!searchField.errors.required">
-          Введіть сторінку
-        </p>
-      </div>
-    </div>
-    <div class="form-group">
-      <button class="btn btn-success" [disabled]="!form.valid" type="submit">перейти</button>
-    </div>
-  </form>
-  <div class="route-content">
-    <div *ngFor="let route of rrr | searchPipe: search">
-      {{route.path}}
-    </div>
-  </div> -->
   <router-outlet></router-outlet>
 </div>

@@ -8,12 +8,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA
 } from '@angular/material';
-import {
-  CrudService
-} from '../../../crud.service';
-import {
-  Workers
-} from '../../../models/worker.models';
+import { CrudService } from '../../../../shared/services/crud.service';
 
 @Component({
   selector: 'app-edit',

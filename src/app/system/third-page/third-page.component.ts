@@ -1,6 +1,6 @@
 import {
   CrudService
-} from './../crud.service';
+} from '../../shared/services/crud.service';
 import {
   HttpClient
 } from '@angular/common/http';
@@ -26,7 +26,7 @@ import {
 } from 'ngx-permissions';
 import {
   UsersService
-} from '../auth/shared/services/user.service';
+} from '../../shared/services/user.service';
 import {
   AddComponent
 } from '../dialog/add/add.component';

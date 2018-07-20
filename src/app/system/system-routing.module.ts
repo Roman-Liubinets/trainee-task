@@ -2,10 +2,10 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
 import { SystemComponent } from "./system.component";
-import { FirstPageComponent } from "../../first-page/first-page.component";
-import { SecondPageComponent } from "../../second-page/second-page.component";
-import { ThirdPageComponent } from "../../third-page/third-page.component";
-import { NotFoundComponent } from "../../not-found/not-found.component";
+import { FirstPageComponent } from "./first-page/first-page.component";
+import { SecondPageComponent } from "./second-page/second-page.component";
+import { ThirdPageComponent } from "./third-page/third-page.component";
+import { NotFoundComponent } from "./not-found/not-found.component";
 
 
 const appRoutes: Routes = [

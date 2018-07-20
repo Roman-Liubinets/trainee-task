@@ -7,13 +7,16 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 
 import { SystemRoutingModule } from "./system-routing.module";
-import { FirstPageComponent } from "../../first-page/first-page.component";
-import { SecondPageComponent } from "../../second-page/second-page.component";
-import { ThirdPageComponent } from "../../third-page/third-page.component";
-import { NotFoundComponent } from "../../not-found/not-found.component";
+import { FirstPageComponent } from "./first-page/first-page.component";
+import { SecondPageComponent } from "./second-page/second-page.component";
+import { ThirdPageComponent } from "./third-page/third-page.component";
+import { NotFoundComponent } from "./not-found/not-found.component";
 import { SystemComponent } from "./system.component";
 import { HeaderComponent } from "../shared/components/header/header.component";
 import { DropdownDirective } from "../shared/directives/dropdown.directive";
+// import { AddComponent } from "./dialog/add/add.component";
+// import { EditComponent } from "./dialog/edit/edit/edit.component";
+// import { DeleteComponent } from "./dialog/delete/delete/delete.component";
 
 
 
@@ -36,7 +39,8 @@ import { DropdownDirective } from "../shared/directives/dropdown.directive";
         SystemComponent,
         HeaderComponent,
         DropdownDirective
-    ]  
+    ],
+    // entryComponents: [AddComponent, EditComponent, DeleteComponent];
 })
 
 export class SystemModule {}

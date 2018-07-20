@@ -1,7 +1,7 @@
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Component, OnInit, Inject} from '@angular/core';
-import { CrudService } from '../../../crud.service';
 import { UserDataSource } from '../../../third-page/third-page.component';
+import { CrudService } from '../../../../shared/services/crud.service';
 
 
 @Component({

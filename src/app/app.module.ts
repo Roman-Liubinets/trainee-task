@@ -7,25 +7,23 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material';
 
 
-
-import { FirstPageComponent } from './first-page/first-page.component';
-import { SecondPageComponent } from './second-page/second-page.component';
-import { ThirdPageComponent } from './third-page/third-page.component';
 import { FormsModule } from '@angular/forms';
-import { NotFoundComponent } from './not-found/not-found.component';
 import { SearchPipe } from './app.pipe';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
-import { CrudService } from './crud.service';
-import { EditPageComponent } from './edit-page/edit-page.component';
+// import { CrudService } from './content/services/crud.service';
+// import { EditPageComponent } from './content/edit-page/edit-page.component';
 import { AuthModule } from './auth/auth.module';
-import { UsersService } from './auth/shared/services/user.service';
-import { AuthService } from './auth/shared/services/auth.service';
+// import { UsersService } from './auth/shared/services/user.service';
+// import { AuthService } from './auth/shared/services/auth.service';
 import { AppRoutingModule } from './app-routing.module';
 import { NgxPermissionsModule } from 'ngx-permissions';
-import { AddComponent } from './dialog/add/add.component';
-import { EditComponent } from './dialog/edit/edit/edit.component';
-import { DeleteComponent } from './dialog/delete/delete/delete.component';
+import { CrudService } from './shared/services/crud.service';
+import { UsersService } from './shared/services/user.service';
+import { AuthService } from './shared/services/auth.service';
+import { AddComponent } from './system/dialog/add/add.component';
+import { EditComponent } from './system/dialog/edit/edit/edit.component';
+import { DeleteComponent } from './system/dialog/delete/delete/delete.component';
 
 
 @NgModule({
@@ -36,7 +34,7 @@ import { DeleteComponent } from './dialog/delete/delete/delete.component';
     // ThirdPageComponent,
     // NotFoundComponent,
     SearchPipe,
-    EditPageComponent,
+    // EditPageComponent,
     AddComponent,
     EditComponent,
     DeleteComponent

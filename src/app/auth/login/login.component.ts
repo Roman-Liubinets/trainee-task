@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { UsersService } from '../shared/services/user.service';
-import { User } from '../shared/models/user.model';
-import { Message } from '../shared/models/message.models';
-import { AuthService } from '../shared/services/auth.service';
+import { UsersService } from '../../shared/services/user.service';
+import { User } from '../../shared/models/user.model';
+import { Message } from '../../shared/models/message.models';
+import { AuthService } from '../../shared/services/auth.service';
 
 
 
@@ -53,7 +53,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     const formData = this.form.value;
-
     this.usersService.getUserByEmail(formData.email)
     .subscribe((user: User) => {
       console.log(user);
