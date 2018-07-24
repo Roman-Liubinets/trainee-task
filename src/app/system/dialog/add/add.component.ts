@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { CrudService } from '../../../shared/services/crud.service';
+import { ConfirmAddComponent } from '../confirm/confirm-add/confirm-add.component';
 
 interface Workers {
   _id: number;
@@ -16,22 +17,44 @@ interface Workers {
 })
 export class AddComponent implements OnInit {
   
-    email: String ='';
-    password: String = '';
-    fullName: String = '';
-    permission: String = '';
-    admin: Boolean = false;
+
+
+  addArray = {
+    email: '',
+    password: '',
+    fullName: '',
+    permission: '',
+    admin: false
+  }
+    
   
   
   workers: Workers[] = [];
+  baseArray: any[] = [];
 
   constructor(private matDialogRef: MatDialogRef<AddComponent>,
      @Inject(MAT_DIALOG_DATA) public data: any,
-      private crudService: CrudService
+      private crudService: CrudService,
+      public dialog: MatDialog
     ) { }
 
   ngOnInit() {
   }
+
+  public confirm() {
+    if(this.addArray.email.length > 0) {
+      this.dialog.open(ConfirmAddComponent, {
+        data: this.addArray
+      })
+      .afterClosed()
+      .subscribe(result => {
+      });
+    } else {
+      this.dialog.closeAll();
+    }  
+  }
+
+
 
 public close() {
   this.matDialogRef.close();
@@ -39,7 +62,7 @@ public close() {
 
 addWorker() {
   this.crudService
-  .addWorker(this.email, this.password, this.fullName, this.permission, this.admin)
+  .addWorker(this.addArray)
   .subscribe((worker: Workers) => {
     this.workers.push(worker);
     console.log(worker);

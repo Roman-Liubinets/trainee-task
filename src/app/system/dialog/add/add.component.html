@@ -2,21 +2,21 @@
   <h3 mat-dialog-title>Add new worker</h3>
   <div class="form">
     <mat-form-field>
-      <input matInput="matInput" type="text" placeholder="email:" [(ngModel)]="email">
+      <input matInput="matInput" type="text" placeholder="email:" [(ngModel)]="addArray.email">
     </mat-form-field>
   </div>
   <div class="form">
     <mat-form-field>
-      <input matInput="matInput" type="text" placeholder="password:" [(ngModel)]="password">
+      <input matInput="matInput" type="text" placeholder="password:" [(ngModel)]="addArray.password">
     </mat-form-field>
   </div>
   <div class="form">
     <mat-form-field>
-      <input matInput="matInput" type="text" placeholder="name:" [(ngModel)]="fullName">
+      <input matInput="matInput" type="text" placeholder="name:" [(ngModel)]="addArray.fullName">
     </mat-form-field>
   </div>
   <div mat-dialog-actions>
     <button class="btn btn-primary" (click)="addWorker()">Add</button>
-    <button mat-button (click)="close()" class="btn">Close</button>
+    <button mat-button (click)="confirm()" class="btn">Close</button>
   </div>
 </div>

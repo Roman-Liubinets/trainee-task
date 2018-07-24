@@ -20,6 +20,7 @@ import { AddComponent } from './system/dialog/add/add.component';
 import { EditComponent } from './system/dialog/edit/edit/edit.component';
 import { DeleteComponent } from './system/dialog/delete/delete/delete.component';
 import { AuthGuard } from './shared/services/auth.guard';
+import { ConfirmAddComponent } from './system/dialog/confirm/confirm-add/confirm-add.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { AuthGuard } from './shared/services/auth.guard';
     AppComponent,
     AddComponent,
     EditComponent,
-    DeleteComponent
+    DeleteComponent,
+    ConfirmAddComponent
   ],
   imports: [
     BrowserModule,
@@ -41,10 +43,9 @@ import { AuthGuard } from './shared/services/auth.guard';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule
-    
   ],
   providers: [CrudService, UsersService, AuthService, AuthGuard],
   bootstrap: [AppComponent],
-  entryComponents: [AddComponent, EditComponent, DeleteComponent]
+  entryComponents: [AddComponent, EditComponent, DeleteComponent, ConfirmAddComponent]
 })
 export class AppModule { }

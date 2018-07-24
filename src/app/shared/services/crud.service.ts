@@ -12,13 +12,13 @@ export class CrudService {
     return this.http.get('http://localhost:8081/api/users');
 }
 
-    addWorker(email, password, name, permission, admin) {
+    addWorker(addArray) {
     const data = {
-        email: email,
-        password: password,
-        name: name,
+        email: addArray.email,
+        password: addArray.password,
+        name: addArray.fullName,
         editable: false,
-        admin: admin
+        admin: addArray.admin
     };
     return this.http.post('http://localhost:8081/api/user', data);
     }
