@@ -21,6 +21,7 @@ import { EditComponent } from './system/dialog/edit/edit/edit.component';
 import { DeleteComponent } from './system/dialog/delete/delete/delete.component';
 import { AuthGuard } from './shared/services/auth.guard';
 import { ConfirmAddComponent } from './system/dialog/confirm/confirm-add/confirm-add.component';
+import { ConfirmEditComponent } from './system/dialog/confirm/confirm-edit/confirm-edit.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ConfirmAddComponent } from './system/dialog/confirm/confirm-add/confirm
     AddComponent,
     EditComponent,
     DeleteComponent,
-    ConfirmAddComponent
+    ConfirmAddComponent,
+    ConfirmEditComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,6 @@ import { ConfirmAddComponent } from './system/dialog/confirm/confirm-add/confirm
   ],
   providers: [CrudService, UsersService, AuthService, AuthGuard],
   bootstrap: [AppComponent],
-  entryComponents: [AddComponent, EditComponent, DeleteComponent, ConfirmAddComponent]
+  entryComponents: [AddComponent, EditComponent, DeleteComponent, ConfirmAddComponent, ConfirmEditComponent]
 })
 export class AppModule { }

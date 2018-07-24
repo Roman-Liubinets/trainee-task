@@ -6,9 +6,11 @@ import {
 } from '@angular/core';
 import {
   MatDialogRef,
-  MAT_DIALOG_DATA
+  MAT_DIALOG_DATA,
+  MatDialog
 } from '@angular/material';
 import { CrudService } from '../../../../shared/services/crud.service';
+import { ConfirmEditComponent } from '../../confirm/confirm-edit/confirm-edit.component';
 
 @Component({
   selector: 'app-edit',
@@ -18,16 +20,37 @@ import { CrudService } from '../../../../shared/services/crud.service';
 export class EditComponent implements OnInit {
   update = this.data.some;
   password;
+  editArray = {
+    email: '',
+    name: '',
+    password: ''
+  };
 
   constructor(
     private matDialogRef: MatDialogRef < EditComponent > ,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private crudService: CrudService) {}
+    private crudService: CrudService,
+    public dialog: MatDialog) {}
 
   ngOnInit() {
     console.log(this.data);
 
   }
+
+  confirm(email, name, password) {
+    this.editArray = {
+      email: email.value,
+      name: name.value,
+      password: password.value
+    };
+      this.dialog.open(ConfirmEditComponent, {
+        data: this.editArray
+      })
+      .afterClosed()
+      .subscribe(result => {
+      });
+  }
+
 
   public close() {
     this.matDialogRef.close();

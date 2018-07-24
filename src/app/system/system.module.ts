@@ -14,6 +14,7 @@ import { NotFoundComponent } from "./not-found/not-found.component";
 import { SystemComponent } from "./system.component";
 import { HeaderComponent } from "../shared/components/header/header.component";
 import { DropdownDirective } from "../shared/directives/dropdown.directive";
+import { ConfirmEditComponent } from './dialog/confirm/confirm-edit/confirm-edit.component';
 // import { ConfirmAddComponent } from './dialog/confirm/confirm-add/confirm-add.component';
 
 
