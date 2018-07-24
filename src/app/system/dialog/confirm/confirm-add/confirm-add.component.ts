@@ -27,6 +27,7 @@ export class ConfirmAddComponent implements OnInit {
 
   public close() {
     this.dialog.closeAll();
+    //git
   }
 
 }
