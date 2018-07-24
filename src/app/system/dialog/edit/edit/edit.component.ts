@@ -43,12 +43,16 @@ export class EditComponent implements OnInit {
       name: name.value,
       password: password.value
     };
+    if(this.update.email != this.editArray.email) {
       this.dialog.open(ConfirmEditComponent, {
         data: this.editArray
       })
       .afterClosed()
       .subscribe(result => {
       });
+    } else {
+      this.matDialogRef.close();
+    }
   }
 
 

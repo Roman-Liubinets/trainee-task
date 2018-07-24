@@ -16,8 +16,14 @@ export class ConfirmEditComponent implements OnInit {
     public dialog: MatDialog
   ) { }
 
-  ngOnInit() {
-    console.log(this.data);
+  ngOnInit() {}
+
+  public continueAdding() {
+    this.matDialogRef.close();
+  }
+
+  public close() {
+    this.dialog.closeAll();
   }
 
 }

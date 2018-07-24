@@ -1,7 +1,7 @@
 <div class="confirm-container">
-  <p>Save changes and post news?</p>
+  <h2 mat-dialog-title>Are you sure you want to leave this window without saving?</h2>
   <div mat-dialog-actions>
-    <button mat-button (click)="continueAdding()" class="btn btn-primary">Save</button>
-    <button mat-button (click)="close()" class="btn">Close</button>
+    <button mat-button (click)="close()" class="btn btn-success">Yes</button>
+    <button mat-button (click)="continueAdding()" class="btn btn-danger">No</button>
   </div>
 </div>

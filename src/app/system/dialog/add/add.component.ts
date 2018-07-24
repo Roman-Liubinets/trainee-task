@@ -43,9 +43,7 @@ export class AddComponent implements OnInit {
 
   public confirm() {
     if(this.addArray.email.length > 0) {
-      this.dialog.open(ConfirmAddComponent, {
-        data: this.addArray
-      })
+      this.dialog.open(ConfirmAddComponent, {})
       .afterClosed()
       .subscribe(result => {
       });

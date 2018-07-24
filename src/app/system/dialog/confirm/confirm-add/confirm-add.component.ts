@@ -11,14 +11,10 @@ export class ConfirmAddComponent implements OnInit {
 
   constructor(
     private matDialogRef: MatDialogRef<ConfirmAddComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    private crudService: CrudService,
     public dialog: MatDialog
   ) { }
 
-  ngOnInit() {
-    console.log(this.data);
-  }
+  ngOnInit() {}
 
 
   public continueAdding() {
@@ -27,7 +23,6 @@ export class ConfirmAddComponent implements OnInit {
 
   public close() {
     this.dialog.closeAll();
-    //git
   }
 
 }
